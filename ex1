@@ -1,0 +1,36 @@
+importjava.sql.DriverManager;
+
+importjava.sql.Connection;
+
+importjava.sql.SQLException;
+
+	importjava.sql.*;  
+
+publicclassmysqlconnect {
+
+	publicstaticvoid main(String args[]){  
+
+	try{
+
+	Class.forName("com.mysql.jdbc.Driver");  
+	
+Connectioncon=DriverManager.getConnection("jdbc:mysql://localhost/nametable","root", "");
+	//here sonoo is database name, root is username and password  
+	
+Statement stmt=con.createStatement();  
+
+	ResultSetrs=stmt.executeQuery("select * from 
+nametable");  
+
+	while(rs.next())  
+
+	System.out.println("FirstName=" +rs.getString(1)+"\t " +"LastName=" +rs.getString(2)+"  ");  
+
+	con.close();  
+
+	}catch(Exception e){ System.out.println(e);}  
+
+	}  
+	
+}
+
